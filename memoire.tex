@@ -4,6 +4,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{csquotes}
 \usepackage{float}
+\usepackage{shorttoc}   
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{setspace}
@@ -49,7 +50,8 @@
 
     %Voir pour annexe !!!
     \setcounter{page}{0}
-    \tableofcontents
+    \addcontentsline{toc}{chapter}{Sommaire}
+    \shorttoc{Sommaire}{1}
     \thispagestyle{empty}
     %ne pas numéroter le sommaire
 
@@ -72,7 +74,10 @@
     \input{./parties/conclusion.tex}
 
     \newpage
-
+    \addcontentsline{toc}{chapter}{Table des Matières}
+    \tableofcontents
+    \newpage
+    \addcontentsline{toc}{chapter}{Bibliographie}
     \printbibliography{}
     
 \end{document}
