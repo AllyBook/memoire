@@ -1,0 +1,74 @@
+\documentclass[a4paper]{report}
+
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\usepackage[style=authoryear, natbib=true,backref=true]{biblatex}
+
+\DefineBibliographyExtras{french}{}
+\DefineBibliographyStrings{french}{byeditor={{é}d.}} 
+
+\addbibresource{bibliographie.bib}
+
+%rajouter les numérotation pour les \paragraphe et \subparagraphe
+%peut être modifier
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\title{}
+\author{Alice Lebreton}
+\date{}
+
+
+%======================== DEBUT DU DOCUMENT ========================
+
+\begin{document}
+    \maketitle{}
+
+    \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+    %page de garde
+
+    %page blanche
+    \newpage
+
+    %ne pas numéroter cette page 
+    \thispagestyle{empty}
+    \newpage
+
+    %Voir pour annexe !!!
+
+    \tableofcontents
+    \thispagestyle{empty}
+    \setcounter{page}{0}
+    %ne pas numéroter le sommaire
+
+    \newpage
+
+    %====================== INCLUSION DES PARTIES ======================
+
+    \thispagestyle{empty}
+    %recommencer la numérotation des pages à "1"
+    \setcounter{page}{0}
+    \newpage
+
+    \input{./parties/introduction.tex}
+
+    \input{./parties/premierepartie.tex}
+    
+    \input{./parties/deuxiemepartie.tex}
+
+    \input{./parties/troisiemepartie.tex}
+
+    \input{./parties/conclusion.tex}
+
+    \newpage
+
+    \printbibliography{}
+    
+\end{document}
