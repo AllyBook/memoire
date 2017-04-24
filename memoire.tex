@@ -1,4 +1,4 @@
-\documentclass[a4paper, p12]{report}
+\documentclass[a4paper, 12pt]{report}
 
 \usepackage[french]{babel}
 \usepackage[T1]{fontenc}
@@ -10,9 +10,14 @@
 \usepackage{setspace}
 \usepackage{gensymb}
 \usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
-\usepackage[style=authoryear, natbib=true,backref=true]{biblatex}
+\usepackage[backend=biber, style=verbose-ibid]{biblatex}
 
-\DefineBibliographyExtras{french}{}
+\DefineBibliographyExtras{french}{
+    \renewcommand{\mkbibnamefamily}[1]{{\hyphenrules{nohyphenation}#1}}
+}
+
+\renewcommand*{\newunitpunct}{\addcomma\space}
+
 \DefineBibliographyStrings{french}{byeditor={{é}d.}} 
 
 \addbibresource{bibliographie.bib}
