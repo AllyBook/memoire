@@ -10,7 +10,7 @@
 \usepackage{setspace}
 \usepackage{gensymb}
 \usepackage[top=2cm, bottom=2cm, left=3cm, right=4cm]{geometry}
-\usepackage[backend=biber, style=verbose-ibid]{biblatex}
+\usepackage[backend=bibtex, style=verbose-ibid]{biblatex}
 
 \DefineBibliographyExtras{french}{
     \renewcommand{\mkbibnamefamily}[1]{{\hyphenrules{nohyphenation}#1}}
@@ -49,18 +49,12 @@
     \newpage
 
     %Voir pour annexe !!!
-    \setcounter{page}{0}
+    \setcounter{page}{1}
     \addcontentsline{toc}{chapter}{Sommaire}
     \shorttoc{Sommaire}{1}
+
     \thispagestyle{empty}
     %ne pas numéroter le sommaire
-
-    \newpage
-
-    %====================== INCLUSION DES PARTIES ======================
-
-    \thispagestyle{empty}
-    %recommencer la numérotation des pages à "1"
     \newpage
 
     \input{./parties/introduction.tex}
@@ -74,9 +68,12 @@
     \input{./parties/conclusion.tex}
 
     \newpage
+    
     \addcontentsline{toc}{chapter}{Table des Matières}
     \tableofcontents
+    
     \newpage
+    
     \addcontentsline{toc}{chapter}{Bibliographie}
     \printbibliography{}
     
