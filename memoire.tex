@@ -8,13 +8,14 @@
 \usepackage{graphicx}
 \usepackage{setspace}
 \usepackage{gensymb}
-\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\usepackage[top=2cm, bottom=2cm, left=3cm, right=4cm]{geometry}
 \usepackage[backend=biber, style=verbose-ibid]{biblatex}
 
 \DefineBibliographyExtras{french}{
     \renewcommand{\mkbibnamefamily}[1]{{\hyphenrules{nohyphenation}#1}}
 }
 
+\renewcommand{\baselinestretch}{1.5}
 \renewcommand*{\newunitpunct}{\addcomma\space}
 
 \DefineBibliographyStrings{french}{byeditor={{é}d.}} 
