@@ -89,11 +89,13 @@
 %=============================================================
 
 \begin{document}
-    \input{./parties/pagedegarde.tex}
-    
+    \begin{titlepage}
+      \input{./parties/pagedegarde.tex}
+    \end{titlepage}
+
+    \setcounter{page}{1}
     \sommaire{}
     \addcontentsline{toc}{section}{Sommaire}
-    \setcounter{page}{1}
 
     \input{./parties/introduction.tex}
     \input{./parties/premierepartie.tex}
