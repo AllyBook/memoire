@@ -1,80 +1,108 @@
-\documentclass[a4paper, 12pt]{report}
-\usepackage[french]{babel}
+\documentclass[a4paper, 12pt, french, twoside, openright]{report}
+
+%====================== Packages =============================
+\usepackage{babel}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{csquotes}
-\usepackage{float}
-\usepackage{shorttoc}   
-\usepackage{amsmath}
-\usepackage{graphicx}
-\usepackage{setspace}
-\usepackage{gensymb}
-\usepackage[top=2cm, bottom=2cm, left=3cm, right=4cm]{geometry}
-\usepackage[backend=biber, style=verbose-ibid, safeinputenc]{biblatex}
+\usepackage[tight]{shorttoc}
+\usepackage[babel=true]{csquotes}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{graphicx} 
+\usepackage{lmodern}
+\usepackage{tikz}
+\usepackage{titlesec}
+\usepackage{blindtext}
+\usepackage{xspace}
+\usepackage{fancyhdr} 	
+\usepackage{color}		
+\usepackage{hyperref}
+\usepackage{emptypage}
+\usepackage[top=2cm, bottom=2cm, left=3cm, right=3cm]{geometry}
+\usepackage[notes, backend=biber, safeinputenc, isbn=false] %
+    {biblatex-chicago}
+%=============================================================
 
-\DefineBibliographyExtras{french}{
-    \renewcommand{\mkbibnamefamily}[1]{{\hyphenrules{nohyphenation}#1}}
-}
+%==================== Commandes Perso ========================
+\newcommand{\hsp}{\hspace{20pt}}
+\newcommand{\hsm}{\hspace{10pt}}
+\newcommand{\siecle}[1]{\bsc{#1}{\ieme}~siècle}
+\newcommand{\sommaire}{\shorttoc{Sommaire}{0}}
+%=============================================================
 
-\renewcommand{\baselinestretch}{1.5}
-\renewcommand*{\newunitpunct}{\addcomma\space}
+%================== Variables Couleurs =======================
+\definecolor{bleucool}{RGB}{022,119,184}
+%=============================================================
 
-\DefineBibliographyStrings{french}{byeditor={{é}d.}} 
+%=============== Titres Chapitres (titlesec) =================
+\titleformat{\chapter}[hang]{\Huge\bfseries}%
+  {\thechapter\hsp\textcolor{bleucool}{|}\hsp}{0pt} %
+    {\Huge\bfseries}
 
+\titleformat{name=\chapter, numberless}[hang]{\Huge\bfseries}%
+  {\hsm\textcolor{bleucool}{|}\hsm}{0pt} %
+    {\Huge\bfseries}
+%=============================================================
+
+%===================== Bibliographie =========================
+\DeclareFieldFormat{series}{\enquote{#1}}
 \addbibresource{bibliographie.bib}
+%=============================================================
 
-%rajouter les numérotation pour les \paragraphe et \subparagraphe
-%peut être modifier
-\setcounter{secnumdepth}{4}
+%============ Sommaire / Table des Matières ==================
+\addto\captionsfrench{\renewcommand{\chaptername}{}}
 \setcounter{tocdepth}{4}
+%=============================================================
 
-\title{Andre Masson}
-\author{Alice Lebreton}
-\date{}
+%============= Entête et Bas de Page (fancyhdr) =============
+\fancyhf{}               
 
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt} 		
 
-%======================== DEBUT DU DOCUMENT ========================
+\fancyhead[LO]{\footnotesize{\scshape\nouppercase{\leftmark}}}
+\fancyhead[RE]{\footnotesize{\scshape\nouppercase{\rightmark}}}
+\fancyhead[EL,OR]{\footnotesize{\thepage}}
+\fancyfoot[C]{--~\thepage~--}		  
+
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyfoot[C]{--~\thepage~--}}
+
+\fancypagestyle{empty}{
+  \fancyhf{}}
+
+\pagestyle{fancy}
+%=============================================================
+
+%============ Renseignement pour fichier PDF =================
+\hypersetup{
+  pdfauthor     = {Alice Lebreton},         
+  pdftitle      = {Andre Masson},          
+  pdfsubject    = {Memoire},      
+  linktoc       = all,
+  colorlinks    = true,
+  urlcolor      = cyan,
+  citecolor     = black,
+  linkcolor     = black,
+  pdfstartview  = {FitH}     
+}
+%=============================================================
 
 \begin{document}
-    \maketitle{}
-
-    \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
-    %page de garde
-
-    %page blanche
-    \newpage
-
-    %ne pas numéroter cette page 
-    \thispagestyle{empty}
-    \newpage
-
-    %Voir pour annexe !!!
+    \input{./parties/pagedegarde.tex}
+    
+    \sommaire{}
+    \addcontentsline{toc}{section}{Sommaire}
     \setcounter{page}{1}
-    \addcontentsline{toc}{chapter}{Sommaire}
-    \shorttoc{Sommaire}{1}
-
-    \thispagestyle{empty}
-    %ne pas numéroter le sommaire
-    \newpage
 
     \input{./parties/introduction.tex}
-
     \input{./parties/premierepartie.tex}
-    
     \input{./parties/deuxiemepartie.tex}
-
     \input{./parties/troisiemepartie.tex}
-
     \input{./parties/conclusion.tex}
 
-    \newpage
-    
-    \addcontentsline{toc}{chapter}{Table des Matières}
-    \tableofcontents
-    
-    \newpage
-
-    \addcontentsline{toc}{chapter}{Bibliographie}
-    \printbibliography{}
-    
+    \nocite{*}
+    \printbibliography[heading=bibintoc]
+    \tableofcontents{}
+    \addcontentsline{toc}{chapter}{Tables des Matières}
 \end{document}

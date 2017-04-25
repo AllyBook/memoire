@@ -1,0 +1,43 @@
+\thispagestyle{empty}
+
+  % cadre  
+ \begin{tikzpicture}[remember picture, overlay]
+ \begin{scope}[shift={(current page.south west)}]
+ \draw[draw=bleucool,fill=bleucool] (-2,0) rectangle (5,32);
+ \end{scope}
+ \end{tikzpicture}
+
+  % unité    
+ \begin{tikzpicture}[remember picture, overlay]
+ \begin{scope}[shift={(current page.south west)}]
+ \draw (1.5,6.3) node[rotate=90] {\sffamily \LARGE \color{white}\textbf{Master Arts Lettres Langues}};
+ \draw (3,10) node [rotate=90,above] {\sffamily   \LARGE \color{white}\textbf{Mention Texte / image : littératures écrans scenes}};
+ \draw (4,7.3) node [rotate=90,above] {\sffamily  \LARGE \color{white}\textbf{Littératures et Cultures de l'image}};
+ \end{scope}
+ \end{tikzpicture}
+
+  %  Le titre 
+ \begin{tikzpicture}[remember picture, overlay]
+ \begin{scope}[shift={(current page.north west)}]
+ \draw (13,-4) node {\sffamily \Huge \color{bleucool}\textbf{Andre Masson}};
+ \draw (13,-5.5) node {\sffamily \Huge \color{bleucool}\textbf{}};
+ \draw (13,-7) node {\sffamily \Large \color{bleucool}\textbf{}};
+ \end{scope}
+ \end{tikzpicture}
+
+  %  Auteur  
+ \begin{tikzpicture}[remember picture, overlay]
+ \begin{scope}[shift={(current page.north west)}]
+ \draw ((13,-13) node {\sffamily \Large \color{bleucool}\textbf{Alice Lebreton}};
+ \draw ((13,-14) node {\sffamily \Large \color{bleucool}\textbf{Université de Poitiers}};
+ \draw (13,-16) node {\sffamily \color{bleucool}\textbf{}};
+ \end{scope}
+ \end{tikzpicture}
+
+  %  Tuteur
+ \begin{tikzpicture}[remember picture, overlay]
+ \begin{scope}[shift={(current page.south west)}]
+ \draw (15,5) node {\sffamily \Large \color{bleucool}\textbf{Sous la direction de Luc Vigier}};
+  \draw (17.5,2) node {\sffamily \color{bleucool}\textbf{Année 2016/2017}};
+ \end{scope}
+ \end{tikzpicture}
