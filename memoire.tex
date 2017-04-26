@@ -17,6 +17,7 @@
 \usepackage{color}		
 \usepackage{hyperref}
 \usepackage{emptypage}
+\usepackage{wrapfig}
 \usepackage[top=2cm, bottom=2cm, left=3cm, right=3cm]{geometry}
 \usepackage[notes, backend=biber, safeinputenc, isbn=false] %
     {biblatex-chicago}
@@ -27,6 +28,7 @@
 \newcommand{\hsm}{\hspace{10pt}}
 \newcommand{\siecle}[1]{\bsc{#1}{\ieme}~siècle}
 \newcommand{\sommaire}{\shorttoc{Sommaire}{0}}
+\newcommand{\tailleimage}{0.50\textwidth}
 %=============================================================
 
 %================== Variables Couleurs =======================
@@ -91,6 +93,8 @@
   pdfstartview  = {FitH}     
 }
 %=============================================================
+
+\graphicspath{{images/}}
 
 \begin{document}
     \begin{titlepage}
