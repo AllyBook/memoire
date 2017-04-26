@@ -7,3 +7,10 @@ Moi (l'abruti) :
 
 Alice :
     Faire première partie 
+
+\begin{wrapfigure}{r}{\tailleimage}
+        \centering
+        \includegraphics[width=\tailleimage]{test}   
+        \caption{Ceci est un test}
+        \label{fig:test}
+\end{wrapfigure}
