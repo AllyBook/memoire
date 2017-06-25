@@ -17,7 +17,7 @@
 \usepackage{color}		
 \usepackage{hyperref}
 \usepackage{emptypage}
-\usepackage{float}
+\usepackage{stfloats}
 \usepackage[top=2cm, bottom=2cm, left=3cm, right=3cm]{geometry}
 \usepackage[notes, backend=biber, safeinputenc, isbn=false] %
     {biblatex-chicago}
@@ -55,7 +55,10 @@
 %=============================================================
 
 %============ Sommaire / Table des Matières ==================
-\addto\captionsfrench{\renewcommand{\chaptername}{}}
+\addto\captionsfrench{%
+  \renewcommand{\chaptername}{}%
+  \renewcommand{\listfigurename}{Table des Illustrations}%
+  }
 \setcounter{tocdepth}{4}
 %=============================================================
 
@@ -115,5 +118,7 @@
     \nocite{*}
     \printbibliography[heading=bibintoc]
     \tableofcontents{}
-    \addcontentsline{toc}{chapter}{Tables des Matières}
+    \addcontentsline{toc}{chapter}{Table des Matières}
+    \listoffigures
+    \addcontentsline{toc}{chapter}{Table des Illustrations}
 \end{document}
